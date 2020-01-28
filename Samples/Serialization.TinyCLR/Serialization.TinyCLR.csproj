@@ -51,7 +51,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TinyCLR\Extensions\MicroExtensions.TinyCLR.csproj">
+    <ProjectReference Include="..\..\TinyCLR\MicroExtensions\MicroExtensions.TinyCLR.csproj">
       <Project>{EF61F983-0BEF-4B47-A263-4B50246DECAD}</Project>
       <Name>MicroExtensions.TinyCLR</Name>
     </ProjectReference>

@@ -1,9 +1,9 @@
 Set-Location $PSScriptRoot
-$path = 'Extensions\Bin\Release\'
+$path = 'MicroExtensions\Bin\Release\'
 Get-ChildItem ($path + '*.nupkg') | Rename-Item -NewName { $_.Name -replace '.nupkg','.zip' }
 $file = Get-ChildItem ($path + '*.zip')
-Copy-Item -Path '.\TinyCLR\Extensions\bin\Release' -Destination ($path + 'lib\net452') -Exclude 'mscorlib.dll' -Recurse -Force
-Copy-Item -Path '.\MF\Extensions\bin\Release' -Destination ($path + 'lib\netmf43') -Recurse -Force
+Copy-Item -Path '.\TinyCLR\MicroExtensions\bin\Release' -Destination ($path + 'lib\net452') -Exclude 'mscorlib.dll' -Recurse -Force
+Copy-Item -Path '.\MF\MicroExtensions\bin\Release' -Destination ($path + 'lib\netmf43') -Recurse -Force
 Remove-Item ($path + 'lib\netmf43\le') -Exclude @('*.pe', '*.pdbx') -Recurse -Force
 Remove-Item ($path + 'lib\netmf43\be') -Exclude @('*.pe', '*.pdbx') -Recurse -Force
 Compress-Archive -Path ($path + "lib") -DestinationPath ($path + $file.Name) -Update

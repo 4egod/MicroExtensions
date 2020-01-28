@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Extensions\MicroExtensions.csproj" />
+    <ProjectReference Include="..\..\MicroExtensions\MicroExtensions.csproj" />
   </ItemGroup>
 
 </Project>

@@ -48,7 +48,7 @@
     <Reference Include="Microsoft.SPOT.Native" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MF\Extensions\MicroExtensions.MF.csproj">
+    <ProjectReference Include="..\..\MF\MicroExtensions\MicroExtensions.MF.csproj">
       <Project>{E83DE62A-FA76-4D21-A0A7-00D92D6524E4}</Project>
       <Name>MicroExtensions.MF</Name>
     </ProjectReference>
