@@ -48,9 +48,9 @@
     <Reference Include="Microsoft.SPOT.Native" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MF\Extensions\Extensions.MF.csproj">
+    <ProjectReference Include="..\..\MF\Extensions\MicroExtensions.MF.csproj">
       <Project>{E83DE62A-FA76-4D21-A0A7-00D92D6524E4}</Project>
-      <Name>Extensions.MF</Name>
+      <Name>MicroExtensions.MF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />

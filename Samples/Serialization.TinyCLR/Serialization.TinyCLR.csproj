@@ -51,9 +51,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TinyCLR\Extensions\Extensions.TinyCLR.csproj">
+    <ProjectReference Include="..\..\TinyCLR\Extensions\MicroExtensions.TinyCLR.csproj">
       <Project>{EF61F983-0BEF-4B47-A263-4B50246DECAD}</Project>
-      <Name>Extensions.TinyCLR</Name>
+      <Name>MicroExtensions.TinyCLR</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
