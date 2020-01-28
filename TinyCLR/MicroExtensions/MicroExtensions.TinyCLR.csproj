@@ -34,25 +34,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Extensions\Conversion\Converter.cs">
+    <Compile Include="..\..\MicroExtensions\Conversion\Converter.cs">
       <Link>Conversion\Converter.cs</Link>
     </Compile>
-    <Compile Include="..\..\Extensions\Extensions\ArrayList.cs">
+    <Compile Include="..\..\MicroExtensions\Extensions\ArrayList.cs">
       <Link>Extensions\ArrayList.cs</Link>
     </Compile>
-    <Compile Include="..\..\Extensions\Extensions\ArrayListExtension.cs">
+    <Compile Include="..\..\MicroExtensions\Extensions\ArrayListExtension.cs">
       <Link>Extensions\ArrayListExtension.cs</Link>
     </Compile>
-    <Compile Include="..\..\Extensions\Extensions\Debug.cs">
+    <Compile Include="..\..\MicroExtensions\Extensions\Debug.cs">
       <Link>Extensions\Debug.cs</Link>
     </Compile>
-    <Compile Include="..\..\Extensions\Extensions\DebuggerBrowsableState.cs">
+    <Compile Include="..\..\MicroExtensions\Extensions\DebuggerBrowsableState.cs">
       <Link>Extensions\DebuggerBrowsableState.cs</Link>
     </Compile>
-    <Compile Include="..\..\Extensions\Extensions\Thread.cs">
+    <Compile Include="..\..\MicroExtensions\Extensions\Thread.cs">
       <Link>Extensions\Thread.cs</Link>
     </Compile>
-    <Compile Include="..\..\Extensions\Serialization\BinarySerializer.cs">
+    <Compile Include="..\..\MicroExtensions\Serialization\BinarySerializer.cs">
       <Link>Serialization\BinarySerializer.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
