@@ -391,11 +391,24 @@
                         break;
                     }
                 case SupportedTypes.DateTime:
-                    {
-                        result = ((DateTime)obj).Ticks.GetBytes();
-                        size += 8;
-                        break;
-                    }
+                {
+                    //result = ((DateTime)obj).Ticks.GetBytes();
+                    var o = (DateTime)obj;
+
+                    result = new byte[7];
+                    int i = 0;
+                    ((ushort)o.Year).GetBytes().CopyTo(result, i);
+                    i += 2;
+
+                    result[i++] = (byte)o.Month;
+                    result[i++] = (byte)o.Day;
+                    result[i++] = (byte)o.Hour;
+                    result[i++] = (byte)o.Minute;
+                    result[i++] = (byte)o.Second;
+
+                    size += result.Length;
+                    break;
+                }
                 case SupportedTypes.TimeSpan:
                     {
                         result = ((TimeSpan)obj).Ticks.GetBytes();
@@ -508,11 +521,21 @@
                         break;
                     }
                 case SupportedTypes.DateTime:
-                    {
-                        result = new DateTime(buf.ToInt64(index));
-                        index += 8;
-                        break;
-                    }
+                {
+                    //result = new DateTime(buf.ToInt64(index));
+                    ushort year = buf.ToUInt16(index);
+                    index += 2;
+                    byte month = buf[index++];
+                    byte day = buf[index++];
+                    byte hour = buf[index++];
+                    byte min = buf[index++];
+                    byte sec = buf[index++];
+
+                    result = new DateTime(year, month, day, hour, min, sec);
+
+                    //index += 7;
+                    break;
+                }
                 case SupportedTypes.TimeSpan:
                     {
                         result = new TimeSpan(buf.ToInt64(index));
