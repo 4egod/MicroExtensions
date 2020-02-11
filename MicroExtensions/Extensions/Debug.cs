@@ -10,6 +10,12 @@ namespace System.Diagnostics
         {
             MFDebug.Print(text);
         }
+
+        [Conditional("DEBUG")]
+        public static void Print(string text)
+        {
+            WriteLine(text);
+        }
     }
 }
 #endif
