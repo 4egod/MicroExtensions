@@ -31,6 +31,9 @@
     <Compile Include="..\..\MicroExtensions\Conversion\Converter.cs">
       <Link>Conversion\Converter.cs</Link>
     </Compile>
+    <Compile Include="..\..\MicroExtensions\Crc\CrcMF.cs">
+      <Link>Crc\CrcMF.cs</Link>
+    </Compile>
     <Compile Include="..\..\MicroExtensions\Extensions\ArrayList.cs">
       <Link>Extensions\ArrayList.cs</Link>
     </Compile>
