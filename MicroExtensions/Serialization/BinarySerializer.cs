@@ -682,7 +682,7 @@
 #if MF || TINYCLR
             fields = obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 #else
-            fields = new List<FieldInfo>(obj.GetType().GetRuntimeFields()).ToArray();
+            fields = new List<FieldInfo>(obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)).ToArray();
 #endif
             FieldInfo fi;
             int nonSerialized = 0;

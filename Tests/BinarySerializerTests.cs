@@ -15,5 +15,13 @@ namespace Tests
 
             date = (DateTime)buf.Deserialize(typeof(DateTime));
         }
+
+        [TestMethod]
+        public void VersionTest()
+        {
+            Version data = new Version(1, 2, 3, 4);
+            byte[] buf = data.Serialize();
+            data = (Version)buf.Deserialize(typeof(Version));
+        }
     }
 }

@@ -5,13 +5,13 @@ namespace System.Diagnostics
 
     public static class Debug
     {
-        [Conditional("DEBUG")]
+        //[Conditional("DEBUG")]
         public static void WriteLine(string text)
         {
             MFDebug.Print(text);
         }
 
-        [Conditional("DEBUG")]
+        //[Conditional("DEBUG")]
         public static void Print(string text)
         {
             WriteLine(text);
