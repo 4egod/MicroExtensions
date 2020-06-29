@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview2\build\net452\GHIElectronics.TinyCLR.Core.props" Condition="Exists('..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview2\build\net452\GHIElectronics.TinyCLR.Core.props')" />
+  <Import Project="..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview6\build\net452\GHIElectronics.TinyCLR.Core.props" Condition="Exists('..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview6\build\net452\GHIElectronics.TinyCLR.Core.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\MicroExtensions\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="..\..\MicroExtensions\Conversion\Converter.cs">
       <Link>Conversion\Converter.cs</Link>
     </Compile>
@@ -55,7 +58,6 @@
     <Compile Include="..\..\MicroExtensions\Serialization\BinarySerializer.cs">
       <Link>Serialization\BinarySerializer.cs</Link>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -65,6 +67,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview2\build\net452\GHIElectronics.TinyCLR.Core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview2\build\net452\GHIElectronics.TinyCLR.Core.props'))" />
+    <Error Condition="!Exists('..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview6\build\net452\GHIElectronics.TinyCLR.Core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\GHIElectronics.TinyCLR.Core.2.0.0-preview6\build\net452\GHIElectronics.TinyCLR.Core.props'))" />
   </Target>
 </Project>

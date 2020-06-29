@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net451</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.20.4.6</Version>
+    <Version>0.20.6.26</Version>
     <Authors>Dmitry Tarasov</Authors>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <Description>Provides some useful extensions to .NET Standart, TinyCLR and .NET Micro Framework.</Description>
     <Copyright>Copyright © Dmitry Tarasov, 2020</Copyright>
-    <PackageTags>tinyclr netmf micro</PackageTags>
+    <PackageTags>tinyclr netmf micro extensions</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/4egod/MicroExtensions.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/4egod/MicroExtensions</PackageProjectUrl>
@@ -17,6 +17,7 @@
     <Product>MicroExtensions</Product>
     <RootNamespace />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,9 +26,5 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="powershell -command rm $(TargetDir)..\*.nupkg" />
-  </Target>
-
+  
 </Project>
