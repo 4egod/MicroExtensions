@@ -16,7 +16,6 @@ Remove-Item "$path/lib/netmf43" -Exclude @("$target.dll", "$target.pe", "le", "b
 
 Compress-Archive -Path "$path/lib" -DestinationPath $file -Update
 
-Copy-Item -Path $file -Destination "../Bin" -Recurse -Force
-Copy-Item -Path $file -Destination "D:\Nuget" -Force
+Copy-Item -Path $file -Destination "Bin" -Recurse -Force
 
 Remove-Item "$path/lib" -Recurse -Force
