@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net451</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.20.3.7</Version>
+    <Version>0.20.4.6</Version>
     <Authors>Dmitry Tarasov</Authors>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <Description>Provides some useful extensions to .NET Standart, TinyCLR and .NET Micro Framework.</Description>
