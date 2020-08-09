@@ -31,7 +31,8 @@ public static class BinarySerializer
         DateTime,
         TimeSpan,
         String,
-        Guid
+        Guid,
+        ByteArray
     }
 
     /// <summary>
@@ -436,6 +437,17 @@ public static class BinarySerializer
                     size += 16;
                     break;
                 }
+            case SupportedTypes.ByteArray:
+                {
+                    byte[] buf = (obj as byte[]);
+                    int len = buf.Length + 4;
+                    result = new byte[len];
+                    buf.Length.GetBytes().CopyTo(result, 0);
+                    buf.CopyTo(result, 4);
+
+                    size += len;
+                    break;
+                }
 
             default: return null;
         }
@@ -574,6 +586,15 @@ public static class BinarySerializer
                     index += 16;
                     break;
                 }
+            case SupportedTypes.ByteArray:
+                {
+                    int len = buf.ToInt32(index);
+                    byte[] res = new byte[len];
+                    Array.Copy(buf, index + 4, res, 0, len);
+                    result = res;
+                    index += (len + 4);
+                    break;
+                }
 
             default: return null;
         }
@@ -612,6 +633,7 @@ public static class BinarySerializer
             case "TimeSpan": return SupportedTypes.TimeSpan;
             case "String": return SupportedTypes.String;
             case "Guid": return SupportedTypes.Guid;
+            case "Byte[]": return SupportedTypes.ByteArray;
 
             default: return SupportedTypes.Unsupported;
         }
@@ -637,6 +659,7 @@ public static class BinarySerializer
             case SupportedTypes.TimeSpan: return typeof(TimeSpan);
             case SupportedTypes.String: return typeof(String);
             case SupportedTypes.Guid: return typeof(Guid);
+            case SupportedTypes.ByteArray: return typeof(Byte[]);
             default: return null;
         }
     }
@@ -663,6 +686,7 @@ public static class BinarySerializer
             case SupportedTypes.TimeSpan: return new TimeSpan();
             case SupportedTypes.String: return string.Empty;
             case SupportedTypes.Guid: return Guid.Empty;
+            case SupportedTypes.ByteArray: return new byte[0];
         }
 
         /// For types with default constructor
@@ -687,14 +711,33 @@ public static class BinarySerializer
 #endif
     }
 
+    private static FieldInfo[] GetAllFields(Type type)
+    {
+        if (type == null)
+        {
+            return new FieldInfo[0];
+        }
+
+        FieldInfo[] res;
+
+        BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly;
+
+        var @this = type.GetFields(flags);
+        var @base = GetAllFields(type.BaseType);
+
+        res = new FieldInfo[@this.Length + @base.Length];
+        Array.Copy(@this, res, @this.Length);
+        Array.Copy(@base, 0, res, @this.Length, @base.Length);
+
+        return res;
+    }
+
     private static FieldInfo[] GetSerializableFileds(object obj)
     {
         FieldInfo[] fields;
-#if MF || TINYCLR
-        fields = obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-#else
-        fields = new List<FieldInfo>(obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)).ToArray();
-#endif
+
+        fields = GetAllFields(obj.GetType());
+
         FieldInfo fi;
         int nonSerialized = 0;
 
@@ -758,4 +801,3 @@ public static class BinarySerializer
         return res;
     }
 }
-//}
