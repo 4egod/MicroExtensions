@@ -49,6 +49,12 @@
     <Compile Include="..\..\MicroExtensions\Extensions\DebuggerBrowsableState.cs">
       <Link>Extensions\DebuggerBrowsableState.cs</Link>
     </Compile>
+    <Compile Include="..\..\MicroExtensions\Extensions\EnumExtension.cs">
+      <Link>Extensions\EnumExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\MicroExtensions\Extensions\IListExtension.cs">
+      <Link>Extensions\IListExtension.cs</Link>
+    </Compile>
     <Compile Include="..\..\MicroExtensions\Extensions\Thread.cs">
       <Link>Extensions\Thread.cs</Link>
     </Compile>
